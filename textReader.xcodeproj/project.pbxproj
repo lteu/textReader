@@ -21,6 +21,10 @@
 		40D08B8D230D88C300DFDABD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40D08B8B230D88C300DFDABD /* GoogleService-Info.plist */; };
 		40D08B9C2314535600DFDABD /* ImageCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D08B982314535600DFDABD /* ImageCropView.m */; };
 		40D08B9D2314535600DFDABD /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D08B992314535600DFDABD /* FXBlurView.m */; };
+		40D08B9F231E9DB400DFDABD /* pants.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40D08B9E231E9DB300DFDABD /* pants.jpg */; };
+		40D08BA2231E9F9600DFDABD /* fword.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40D08BA0231E9F9600DFDABD /* fword.jpg */; };
+		40D08BA3231E9F9600DFDABD /* pants2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40D08BA1231E9F9600DFDABD /* pants2.jpg */; };
+		40D08BA5231EA04600DFDABD /* pants3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40D08BA4231EA04600DFDABD /* pants3.jpg */; };
 		7FF67E78A690759048C2CD88 /* Pods_textReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053DA750DB1E650E33FE70A1 /* Pods_textReader.framework */; };
 		843CBC9C9A7D8F63BEB0A665 /* Pods_textReaderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1962A223C2561A6280C1C7C /* Pods_textReaderUITests.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +71,10 @@
 		40D08B992314535600DFDABD /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		40D08B9A2314535600DFDABD /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		40D08B9B2314535600DFDABD /* ImageCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropView.h; sourceTree = "<group>"; };
+		40D08B9E231E9DB300DFDABD /* pants.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pants.jpg; sourceTree = "<group>"; };
+		40D08BA0231E9F9600DFDABD /* fword.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fword.jpg; sourceTree = "<group>"; };
+		40D08BA1231E9F9600DFDABD /* pants2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pants2.jpg; sourceTree = "<group>"; };
+		40D08BA4231EA04600DFDABD /* pants3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pants3.jpg; sourceTree = "<group>"; };
 		681A46EA343E761471210BE3 /* Pods_textReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_textReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CEF2147A5721417BA58EC80 /* Pods-textReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textReaderUITests.debug.xcconfig"; path = "Target Support Files/Pods-textReaderUITests/Pods-textReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F947D5DC81C1DE985E55D1D /* Pods-textReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textReader.release.xcconfig"; path = "Target Support Files/Pods-textReader/Pods-textReader.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +151,10 @@
 				40D08B65230D7A1A00DFDABD /* Info.plist */,
 				40D08B66230D7A1A00DFDABD /* main.m */,
 				40D08B89230D7EB100DFDABD /* pic.jpg */,
+				40D08B9E231E9DB300DFDABD /* pants.jpg */,
+				40D08BA0231E9F9600DFDABD /* fword.jpg */,
+				40D08BA1231E9F9600DFDABD /* pants2.jpg */,
+				40D08BA4231EA04600DFDABD /* pants3.jpg */,
 			);
 			path = textReader;
 			sourceTree = "<group>";
@@ -298,10 +310,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D08B8A230D7EB100DFDABD /* pic.jpg in Resources */,
+				40D08BA3231E9F9600DFDABD /* pants2.jpg in Resources */,
 				40D08B64230D7A1A00DFDABD /* LaunchScreen.storyboard in Resources */,
+				40D08B9F231E9DB400DFDABD /* pants.jpg in Resources */,
 				40D08B8C230D88C300DFDABD /* GoogleService-Info.plist in Resources */,
+				40D08BA2231E9F9600DFDABD /* fword.jpg in Resources */,
 				40D08B61230D7A1A00DFDABD /* Assets.xcassets in Resources */,
 				40D08B5F230D7A1800DFDABD /* Main.storyboard in Resources */,
+				40D08BA5231EA04600DFDABD /* pants3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
