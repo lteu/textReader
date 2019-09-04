@@ -1,3 +1,7 @@
 # textReader
 
-This is an iOS app, based on objective-c, that is able to extract text from camera/photo.
+
+This Demo shows how to use Objective-C, Firebase and imagePicker to extract text from photo camera.
+
+![Output sample](https://github.com/lteu/textReader/gif/demo.gif)
+
