@@ -8,5 +8,5 @@ This Demo shows how to use Objective-C, Firebase and imagePicker to extract text
 
 Ref:
 
-- ![Firebase](https://firebase.google.com/docs/ml-kit/ios/recognize-text)
-- ![Image Crop View](https://github.com/myang-git/iOS-Image-Crop-View)
+- [Firebase](https://firebase.google.com/docs/ml-kit/ios/recognize-text)
+- [Image Crop View](https://github.com/myang-git/iOS-Image-Crop-View)
