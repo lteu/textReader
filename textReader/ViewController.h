@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ImageCropView.h"
+#import "CameraViewController.h"
 
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageCropViewControllerDelegate>
+@interface ViewController : UIViewController <cameraVCDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageCropViewControllerDelegate>
 //@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

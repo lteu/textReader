@@ -34,6 +34,7 @@
                                     <barButtonItem title="📷 Take Photo" width="196" id="K8Z-4T-qPl">
                                         <connections>
                                             <action selector="takePhoto:" destination="BYZ-38-t0r" id="q3H-Q9-emf"/>
+                                            <segue destination="c2j-gW-3QI" kind="show" identifier="cameraSegue" id="xJa-gS-BXY"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="🗂 Choose" width="128" id="tIb-wN-xG7">
@@ -77,6 +78,53 @@
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
         </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="wvW-YV-Zec">
+            <objects>
+                <viewController id="c2j-gW-3QI" customClass="CameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zmg-ba-bu8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yr6-zz-Q7a">
+                                <rect key="frame" x="0.0" y="27" width="414" height="896"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7z-bz-8to">
+                                        <rect key="frame" x="167" y="675" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="DU2-kl-sB3"/>
+                                            <constraint firstAttribute="width" constant="80" id="apT-pI-8A1"/>
+                                        </constraints>
+                                        <state key="normal" title="snap" image="snap.png"/>
+                                        <state key="highlighted" image="snap-press"/>
+                                        <connections>
+                                            <action selector="didTakePhoto:" destination="c2j-gW-3QI" eventType="touchUpInside" id="Mzi-oQ-82Q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yr6-zz-Q7a" firstAttribute="centerY" secondItem="sxi-Jp-mSm" secondAttribute="centerY" id="2lt-ng-ZR6"/>
+                            <constraint firstItem="sxi-Jp-mSm" firstAttribute="bottom" secondItem="d7z-bz-8to" secondAttribute="bottom" constant="80" id="4lT-vI-ilg"/>
+                            <constraint firstItem="d7z-bz-8to" firstAttribute="centerX" secondItem="sxi-Jp-mSm" secondAttribute="centerX" id="4nI-Fz-3Jh"/>
+                            <constraint firstItem="Yr6-zz-Q7a" firstAttribute="height" secondItem="Zmg-ba-bu8" secondAttribute="height" id="TzI-Ng-wfC"/>
+                            <constraint firstItem="Yr6-zz-Q7a" firstAttribute="centerX" secondItem="sxi-Jp-mSm" secondAttribute="centerX" id="ekJ-kP-irk"/>
+                            <constraint firstItem="Yr6-zz-Q7a" firstAttribute="width" secondItem="Zmg-ba-bu8" secondAttribute="width" id="h21-9f-RNQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sxi-Jp-mSm"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="Yr6-zz-Q7a" id="emc-jR-Lxg"/>
+                        <outlet property="snapButton" destination="d7z-bz-8to" id="EFj-gK-pMm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TRt-jJ-A7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015.9420289855075" y="-193.52678571428569"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rtq-UY-hZ2">
             <objects>
@@ -96,4 +144,8 @@
             <point key="canvasLocation" x="103" y="-56"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="snap-press" width="16" height="16"/>
+        <image name="snap.png" width="51.200000762939453" height="51.200000762939453"/>
+    </resources>
 </document>

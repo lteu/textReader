@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		16F3A0B9814ACCAE3287D8B0 /* Pods_textReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681A46EA343E761471210BE3 /* Pods_textReaderTests.framework */; };
+		4031CCF423254BDE00E0F714 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4031CCF323254BDE00E0F714 /* AVFoundation.framework */; };
+		406E237C2327C3A200C2FC06 /* CameraFocusSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 406E23792327C3A100C2FC06 /* CameraFocusSquare.m */; };
+		406E237D2327C3A200C2FC06 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406E237A2327C3A100C2FC06 /* CameraViewController.m */; };
+		406E23832327E90C00C2FC06 /* snap.png in Resources */ = {isa = PBXBuildFile; fileRef = 406E23822327E90C00C2FC06 /* snap.png */; };
+		406E238623280B7D00C2FC06 /* snap-press.png in Resources */ = {isa = PBXBuildFile; fileRef = 406E238523280B7D00C2FC06 /* snap-press.png */; };
 		40D08B59230D7A1800DFDABD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D08B58230D7A1800DFDABD /* AppDelegate.m */; };
 		40D08B5C230D7A1800DFDABD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D08B5B230D7A1800DFDABD /* ViewController.m */; };
 		40D08B5F230D7A1800DFDABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40D08B5D230D7A1800DFDABD /* Main.storyboard */; };
@@ -49,6 +54,13 @@
 /* Begin PBXFileReference section */
 		053DA750DB1E650E33FE70A1 /* Pods_textReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_textReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EAF956F2A809C9FBA35F83 /* Pods-textReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textReaderTests.debug.xcconfig"; path = "Target Support Files/Pods-textReaderTests/Pods-textReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4031CCF323254BDE00E0F714 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		406E23782327C3A100C2FC06 /* CameraFocusSquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraFocusSquare.h; sourceTree = "<group>"; };
+		406E23792327C3A100C2FC06 /* CameraFocusSquare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraFocusSquare.m; sourceTree = "<group>"; };
+		406E237A2327C3A100C2FC06 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		406E237B2327C3A100C2FC06 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		406E23822327E90C00C2FC06 /* snap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snap.png; sourceTree = "<group>"; };
+		406E238523280B7D00C2FC06 /* snap-press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snap-press.png"; sourceTree = "<group>"; };
 		40D08B54230D7A1800DFDABD /* textReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40D08B57230D7A1800DFDABD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		40D08B58230D7A1800DFDABD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -89,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4031CCF423254BDE00E0F714 /* AVFoundation.framework in Frameworks */,
 				7FF67E78A690759048C2CD88 /* Pods_textReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +159,10 @@
 				40D08B992314535600DFDABD /* FXBlurView.m */,
 				40D08B9B2314535600DFDABD /* ImageCropView.h */,
 				40D08B982314535600DFDABD /* ImageCropView.m */,
+				406E23782327C3A100C2FC06 /* CameraFocusSquare.h */,
+				406E23792327C3A100C2FC06 /* CameraFocusSquare.m */,
+				406E237B2327C3A100C2FC06 /* CameraViewController.h */,
+				406E237A2327C3A100C2FC06 /* CameraViewController.m */,
 				40D08B60230D7A1A00DFDABD /* Assets.xcassets */,
 				40D08B62230D7A1A00DFDABD /* LaunchScreen.storyboard */,
 				40D08B65230D7A1A00DFDABD /* Info.plist */,
@@ -155,6 +172,8 @@
 				40D08BA0231E9F9600DFDABD /* fword.jpg */,
 				40D08BA1231E9F9600DFDABD /* pants2.jpg */,
 				40D08BA4231EA04600DFDABD /* pants3.jpg */,
+				406E23822327E90C00C2FC06 /* snap.png */,
+				406E238523280B7D00C2FC06 /* snap-press.png */,
 			);
 			path = textReader;
 			sourceTree = "<group>";
@@ -181,6 +200,7 @@
 		94A76509864C9C3A5B2A3884 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4031CCF323254BDE00E0F714 /* AVFoundation.framework */,
 				053DA750DB1E650E33FE70A1 /* Pods_textReader.framework */,
 				681A46EA343E761471210BE3 /* Pods_textReaderTests.framework */,
 				E1962A223C2561A6280C1C7C /* Pods_textReaderUITests.framework */,
@@ -313,8 +333,10 @@
 				40D08BA3231E9F9600DFDABD /* pants2.jpg in Resources */,
 				40D08B64230D7A1A00DFDABD /* LaunchScreen.storyboard in Resources */,
 				40D08B9F231E9DB400DFDABD /* pants.jpg in Resources */,
+				406E23832327E90C00C2FC06 /* snap.png in Resources */,
 				40D08B8C230D88C300DFDABD /* GoogleService-Info.plist in Resources */,
 				40D08BA2231E9F9600DFDABD /* fword.jpg in Resources */,
+				406E238623280B7D00C2FC06 /* snap-press.png in Resources */,
 				40D08B61230D7A1A00DFDABD /* Assets.xcassets in Resources */,
 				40D08B5F230D7A1800DFDABD /* Main.storyboard in Resources */,
 				40D08BA5231EA04600DFDABD /* pants3.jpg in Resources */,
@@ -446,10 +468,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				406E237C2327C3A200C2FC06 /* CameraFocusSquare.m in Sources */,
 				40D08B9C2314535600DFDABD /* ImageCropView.m in Sources */,
 				40D08B5C230D7A1800DFDABD /* ViewController.m in Sources */,
 				40D08B9D2314535600DFDABD /* FXBlurView.m in Sources */,
 				40D08B67230D7A1A00DFDABD /* main.m in Sources */,
+				406E237D2327C3A200C2FC06 /* CameraViewController.m in Sources */,
 				40D08B59230D7A1800DFDABD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
