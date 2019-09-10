@@ -27,11 +27,6 @@
 @implementation CameraViewController
 
 @synthesize delegate;
-//-(void)viewWillDisappear:(BOOL)animated
-//{
-//    [delegate sendDataToA:@"A String from controller B"];
-//
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,35 +34,11 @@
     
     self.snapButton.layer.zPosition = self.previewView.layer.zPosition + 1;
     
-}
-
--(void) handlePinchToZoomRecognizer:(UIPinchGestureRecognizer*)pinchRecognizer {
-    const CGFloat pinchVelocityDividerFactor = 30.0f;
-    
-    if (pinchRecognizer.state == UIGestureRecognizerStateChanged) {
-        NSError *error = nil;
-        AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-        if ([videoDevice lockForConfiguration:&error]) {
-            CGFloat desiredZoomFactor = self.acd.videoZoomFactor + atan2f(pinchRecognizer.velocity, pinchVelocityDividerFactor);
-            // Check if desiredZoomFactor fits required range from 1.0 to activeFormat.videoMaxZoomFactor
-            self.acd.videoZoomFactor = MAX(1.0, MIN(desiredZoomFactor, self.acd.activeFormat.videoMaxZoomFactor));
-            [videoDevice unlockForConfiguration];
-        } else {
-            NSLog(@"error: failed to lock device for pintch-zoom configuration %@", error);
-        }
-    }
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
     
     self.captureSession = [AVCaptureSession new];
     self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     
     AVCaptureDevice *backCamera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
     NSError* err = nil;
     BOOL lockAcquired = [backCamera lockForConfiguration:&err];
     
@@ -78,8 +49,6 @@
         backCamera.focusMode = AVCaptureFocusModeContinuousAutoFocus;
         [backCamera unlockForConfiguration];
     }
-    
-    
     if (!backCamera) {
         NSLog(@"Unable to access back camera!");
         return;
@@ -88,17 +57,13 @@
     NSError *error;
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:backCamera
                                                                         error:&error];
-    if (!error) {
-        //Step 9
-    }
-    else {
+    if (error) {
         NSLog(@"Error Unable to initialize back camera: %@", error.localizedDescription);
     }
     
     self.stillImageOutput = [AVCapturePhotoOutput new];
     
     if ([self.captureSession canAddInput:input] && [self.captureSession canAddOutput:self.stillImageOutput]) {
-        
         [self.captureSession addInput:input];
         [self.captureSession addOutput:self.stillImageOutput];
         [self setupLivePreview];
@@ -118,6 +83,39 @@
     self.acd = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+//    [self.captureSession stopRunning];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    
+}
+
+
+-(void) handlePinchToZoomRecognizer:(UIPinchGestureRecognizer*)pinchRecognizer {
+    const CGFloat pinchVelocityDividerFactor = 30.0f;
+    
+    if (pinchRecognizer.state == UIGestureRecognizerStateChanged) {
+        NSError *error = nil;
+        AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if ([videoDevice lockForConfiguration:&error]) {
+            CGFloat desiredZoomFactor = self.acd.videoZoomFactor + atan2f(pinchRecognizer.velocity, pinchVelocityDividerFactor);
+            // Check if desiredZoomFactor fits required range from 1.0 to activeFormat.videoMaxZoomFactor
+            self.acd.videoZoomFactor = MAX(1.0, MIN(desiredZoomFactor, self.acd.activeFormat.videoMaxZoomFactor));
+            [videoDevice unlockForConfiguration];
+        } else {
+            NSLog(@"error: failed to lock device for pintch-zoom configuration %@", error);
+        }
+    }
+    
+}
+
 - (void)handleTapToFocus:(UITapGestureRecognizer *)tapGesture
 {
    
@@ -135,8 +133,6 @@
             [self.focusSquare updatePoint:thisFocusPoint];
         }
         [self.focusSquare animateFocusingAction];
-        
-        
         
         if ([self.acd isFocusModeSupported:AVCaptureFocusModeAutoFocus] && [self.acd isFocusPointOfInterestSupported])
         {
@@ -166,9 +162,6 @@
     
     if (self.videoPreviewLayer) {
         
-//        AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [AVCaptureVideoPreviewLayer layerWithSession: self.session];
-//        [captureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-        
         self.videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
         self.videoPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
         [self.previewView.layer addSublayer:self.videoPreviewLayer];
@@ -187,44 +180,23 @@
 
 - (IBAction)didTakePhoto:(id)sender {
     AVCapturePhotoSettings *settings = [AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey: AVVideoCodecTypeJPEG}];
-    
     [self.stillImageOutput capturePhotoWithSettings:settings delegate:self];
 }
 
 - (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error {
-    
     NSData *imageData = photo.fileDataRepresentation;
     if (imageData) {
         UIImage *image = [UIImage imageWithData:imageData];
-        
-        
         ImageCropViewController *controller = [[ImageCropViewController alloc] initWithImage:image];
         controller.delegate = self;
         controller.blurredBackground = YES;
         [[self navigationController] pushViewController:controller animated:YES];
-        
-        
-//        [self.navigationController popViewControllerAnimated:YES];
-//        // Add the image to captureImageView here...
-////        self.captureImageView.image = image;
-//        [self.delegate setImage:image]; // to go back
-//        
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
-    [self.captureSession stopRunning];
-}
-
-
 
 - (void)ImageCropViewControllerSuccess:(ImageCropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage{
-//    self.img.image = croppedImage;
-//    [self translateImage:croppedImage];
     [self.delegate setImage:croppedImage];
-    
     [[self navigationController] popViewControllerAnimated:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
